@@ -1,0 +1,108 @@
+For Help in Command-Line, type "help".
+
+DONT CHANGE ANY PATHS, PATH-NAMES OR ELSE.
+IF YOU WANT TO HAVE ORBIT.PY SOMEWHERE ELSE, CREATE A SHORTCUT.
+
+1.0 - Create a new package:
+	1. Go to packages\\
+	2. Make a new file, call it "mycmd.orb"
+	3. Replace "mycmd" with your command, for example "print"
+
+1.1 - Add Commands:
+	1.1.1 - Variables
+		1.1.1.1 - Set and call a variable
+			To set a variable: VARNAME/VALUE (for example: x/Hello World)
+			To call a variable: ~VARNAME     (for example: ~x)
+			You can place a variable whereever you want (for example: $pl Hello World, my name is ~x)
+		
+		1.1.1.2 - Work with input
+			To get an input, use the keyword "#input" as a value. (for example: x/#input)
+			To add text to the input, add 2 more slashes. (for example:x/#input/Whats your name: /)
+			The input is now saved in "x"
+			
+		1.1.1.3 - Work with files
+			To get a whole file, use the keyword "#file". (for example: x/#file)
+			You also can get data out of a file. The file needs to look like this:
+				name:user1234
+				password:pw_14!azG
+				age:18
+				location:america
+			To get one argument, use the keyword "#file:ARGUMENT". (for example: x/file:name)
+		
+		1.1.1.4 - Work with cutting
+			To cut the value of a variable, use square brackets. (for example: x/[1:])
+				x = "hello"          y = "hello"
+				x/[1:]             y/[:-1]
+				x = "ello"           y = "hell"
+
+	1.1.2 - Print line
+		To print a line, use the keyword "$pl" (for example: $pl Hello World)
+		Warning: " or ' is not needed!
+		A line break happens automatically.
+	
+	1.1.3 - Files
+		1.1.3.1 - Set a filename
+			Before working with a file, you need to set a filename.
+			To set a filename, use the keyword "$file FILENAME.TXT"
+			
+		1.1.3.2 - Read a file
+			Look at >1.1.1.3 - Work with files<
+			
+		1.1.3.3 - Write to a file
+			To write to a file, use the keyword "$fw" (for example: $fw Hello World |OR| $fw ~MyText)
+		
+		1.1.3.4 - Clear a file
+			To clear a file, use "$filec"
+			
+		1.1.3.5 - Delete a file
+			To delete a file, use "$fd"
+			Make shure, the file is closed.
+			
+		1.1.3.6 - Close a file
+			To close a file, use "$fc"
+			
+	1.1.4 - Arguments
+		When you run a package, (for example: " > print")
+		you can add arguments 	(for example: " > print -t 'something'")
+		
+		To get an argument: &NUMBER (for example: "$pl &1")
+			TERMINAL:
+				> print "Hello, World!"
+			PACKAGE:
+				$pl &1
+			OUTPUT:
+				Hello, World!
+
+		If the text is between " or ', its one argument.
+			TERMINAL:
+				> print Hello, World!     	| > print "Hello, World!"
+			PACKAGE:						|
+				$pl &1						| $pl &1 
+			OUTPUT:							|
+				Hello,						| Hello, World!
+	
+	1.1.5 - Running commands
+		To run a terminal command, for example "clear" in a package: ".{clear}"
+		To run a package command, for example "$pl Hello World" in a package: "!{$pl Hello World}"
+		(I dont know why I made this btw)
+	
+	1.1.6 - Stop command
+		You can use the "stop" command to let the program sleep for X seconds.
+		As Int:			stop 2
+		As Float:		stop 1.5
+		As Var:			stop ~time
+		As Argument:	stop &1
+	
+	1.1.7 - Comments
+		A comment starts with ";" and cannot be after a command. (for example: "$pl Hi ;prints 'Hi'")
+		Multiline comments doesnt exist.
+		
+1.2 - Run a package
+	1.2.1 - Run
+		To run a package, just type the package-name (for example with print.orb: "print")
+		You can add arguments, if you want (>1.1.4 - Arguments<) (for example with print.orb: "print 'Hello World' -t foo bar")
+	
+	1.2.2 - Errors
+		Errors are hard to find. If something is not correct, the program will stop and output "An Error occurred".
+		We will add things for troubleshooting later.
+	

@@ -1,0 +1,8 @@
+; This is an example package.
+; It can be called by typing "print" in the Terminal
+
+$pl &1
+
+; "$pl" is the print command
+; "&1" is the first argument
+; print 'HELLO WORLD' = $pl &1 = HELLO WORLD

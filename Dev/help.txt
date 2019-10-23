@@ -1,0 +1,5 @@
+--------------------Help--------------------
+packs        - Show all available packages
+clear 	     - Clears the screen
+showvars     - Show all variables
+help         - Show this help
